@@ -1,0 +1,24 @@
+server {
+	host: 172.22.22.240
+	listen: 8081
+	root: nef/
+	autoindex: on
+	names: Bern.ch www.Bern.ch
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8081
+	root: nef/
+	index: index.html
+	names: Belp.ch www.Belp.ch
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8081
+	root: nef/
+	length: 256
+	names: Münsingen.ch www.Münsingen.ch
+}
+

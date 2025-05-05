@@ -1,0 +1,43 @@
+server {
+	host: 127.0.0.1
+	listen: 8082
+	root: def/
+	autoindex: off
+	location {
+		path: /showmeindex
+		redirect: /home
+	}
+	location {
+		path: /home/
+		index: def/index.html
+	}
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8084
+	root: nef/
+	autoindex: on
+	length: 500000000
+	names: database.ch www.database.ch 
+	location {
+		path: /vault/
+		methods: GET POST DELETE
+	}
+	location {
+		path: /upload/
+		upload: vault
+		methods: POST
+	}
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8085
+	root: def/
+	length: 256
+	names: job.ch www.job.ch
+	index: def/index.html
+	error: 404:def/err/404.txt 403:def/err/403.txt
+}
+

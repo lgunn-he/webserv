@@ -1,0 +1,35 @@
+server {
+	host: 127.0.0.1
+	listen: 8081
+	root: cgi/
+	location {
+		path: /index.html
+		cgi: cgi/setreq.py
+		methods: GET POST
+	}
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8082
+	root: cgi/
+	location {
+		path: /index.html
+		cgi: cgi/loop.py
+	}
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8083
+	root: cgi/
+	location {
+		path: /index.html
+		cgi: cgi/broken.py
+	}
+	location {
+		path: /forbidden.html
+		cgi: cgi/forbidden.py
+	}
+}
+

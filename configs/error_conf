@@ -1,0 +1,25 @@
+server {
+	host: 127.0.0.1
+	listen: 8081
+	length: 2000000000
+	root: err/
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8082
+	root: err/forbidden/
+	autoindex: off
+	index: Quarter
+	error: 404:Morgan 403:Quarter
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8083
+	root: err/
+	location {
+		path: /
+		redirect: /
+	}
+}

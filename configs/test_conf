@@ -1,0 +1,58 @@
+server {
+	host: 127.0.0.1
+	listen: 8081
+	root: loc/
+	location {
+		path: /Edelweiss/
+		root: loc/Thistle/
+	}
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8082
+	root: loc/
+	location {
+		path: /Juniper
+		redirect: /Thistle/plant
+	}
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8083
+	root: loc/
+	autoindex: off
+	location {
+		path: /Rose
+		autoindex: off
+		index: loc/Thistle/plant
+	}
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8084
+	root: loc/
+	autoindex: off
+	location {
+		path: /Rose
+		autoindex: on
+	}
+}
+
+server {
+	host: 127.0.0.1
+	listen: 8085
+	root: loc/
+	location {
+		path: /Shamrock/
+		upload: Shamrock/Gauss/
+		methods: GET POST DELETE
+	}
+	location {
+		path: /Shamrock/Gauss
+		methods: GET DELETE
+	}
+}
+
